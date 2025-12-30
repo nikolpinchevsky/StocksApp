@@ -58,8 +58,7 @@ dependencies {
     androidTestImplementation(libs.androidx.ui.test.junit4)
     debugImplementation(libs.androidx.ui.tooling)
     debugImplementation(libs.androidx.ui.test.manifest)
-
-    implementation(project(":mylibrary"))
+    implementation(project(":stockslibrary"))
 
     // Compose navigation
     implementation(libs.androidx.navigation.compose)

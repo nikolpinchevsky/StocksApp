@@ -1,4 +1,4 @@
-package com.example.mylibrary
+package com.example.stockslibrary
 
 import retrofit2.http.Body
 import retrofit2.http.GET

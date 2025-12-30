@@ -1,4 +1,4 @@
-package com.example.mylibrary
+package com.example.stockslibrary
 
 data class AuthBody(val email: String, val password: String)
 data class TokenResponse(val token: String)

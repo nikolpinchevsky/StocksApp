@@ -22,4 +22,4 @@ dependencyResolutionManagement {
 
 rootProject.name = "StocksApp"
 include(":app")
-include(":mylibrary")
+include(":stockslibrary")

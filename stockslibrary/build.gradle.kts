@@ -1,10 +1,11 @@
 plugins {
     alias(libs.plugins.android.library)
     alias(libs.plugins.kotlin.android)
+    id("maven-publish")
 }
 
 android {
-    namespace = "com.example.mylibrary"
+    namespace = "com.example.stockslibrary"
     compileSdk = 36
 
     defaultConfig {

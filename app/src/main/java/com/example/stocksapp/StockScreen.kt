@@ -7,7 +7,7 @@ import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.lifecycleScope
-import com.example.mylibrary.StocksSdk
+import com.example.stockslibrary.StocksSdk
 import com.github.mikephil.charting.charts.BarChart
 import com.github.mikephil.charting.charts.LineChart
 import com.github.mikephil.charting.data.*
@@ -15,7 +15,7 @@ import kotlinx.coroutines.launch
 
 class StockActivity : AppCompatActivity() {
 
-    private val sdk = StocksSdk("http://10.0.2.2:8000/")
+    private val sdk = StocksSdk("https://stocks-server-8kwj.onrender.com/")
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -54,7 +54,7 @@ class StockActivity : AppCompatActivity() {
         }
     }
 
-    private fun setupLineChart(chart: LineChart, points: List<com.example.mylibrary.HistoryPoint>) {
+    private fun setupLineChart(chart: LineChart, points: List<com.example.stockslibrary.HistoryPoint>) {
         val entries = points.mapIndexed { index, point ->
             Entry(index.toFloat(), point.price.toFloat())
         }
@@ -69,7 +69,7 @@ class StockActivity : AppCompatActivity() {
         chart.invalidate() // רענון
     }
 
-    private fun setupBarChart(chart: BarChart, points: List<com.example.mylibrary.HistoryPoint>) {
+    private fun setupBarChart(chart: BarChart, points: List<com.example.stockslibrary.HistoryPoint>) {
         val entries = points.mapIndexed { index, point ->
             BarEntry(index.toFloat(), point.volume.toFloat())
         }

@@ -1,4 +1,4 @@
-package com.example.mylibrary
+package com.example.stockslibrary
 
 import okhttp3.Interceptor
 import okhttp3.OkHttpClient
