@@ -33,6 +33,18 @@ android {
     }
 }
 
+afterEvaluate {
+    publishing {
+        publications {
+            create<MavenPublication>("release") {
+                from(components["release"])
+                groupId = "com.github.nikolpinchevsky"
+                artifactId = "stockslibrary"
+                version = "1.0.0"
+            }
+        }
+    }
+}
 dependencies {
 
     implementation(libs.androidx.core.ktx)
@@ -46,3 +58,4 @@ dependencies {
     implementation(libs.converter.gson)
     implementation(libs.okhttp)
 }
+
