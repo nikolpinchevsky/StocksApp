@@ -15,7 +15,7 @@ import kotlinx.coroutines.launch
 
 class StockActivity : AppCompatActivity() {
 
-    private val sdk = StocksSdk("https://stocks-server-8kwj.onrender.com/")
+    private val sdk = StocksSdk("https://stocks-server-e1vy.onrender.com/")
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
