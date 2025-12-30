@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">StocksApp</string>
+    <string name="choose_a_brand">Choose a Brand</string>
+    <string name="nike">Nike</string>
+    <string name="amazon">Amazon</string>
+    <string name="apple">Apple</string>
+    <string name="current_price">Current Price: </string>
+    <string name="aapl">AAPL</string>
+    <string name="back">Back</string>
+</resources>
