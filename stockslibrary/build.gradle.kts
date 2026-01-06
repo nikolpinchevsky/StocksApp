@@ -40,7 +40,7 @@ afterEvaluate {
                 from(components["release"])
                 groupId = "com.github.nikolpinchevsky"
                 artifactId = "stockslibrary"
-                version = "1.2.0"
+                version = "1.3"
             }
         }
     }
