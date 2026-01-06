@@ -17,21 +17,27 @@ class MainActivity : AppCompatActivity() {
         val btnApple = findViewById<Button>(R.id.btnApple)
 
         btnNike.setOnClickListener {
-            openStockScreen("NKE")
+            openStockScreen("NKE", "Nike")
         }
 
         btnAmazon.setOnClickListener {
-            openStockScreen("AMZN")
+            openStockScreen( "AMZN", "Amazon")
         }
 
         btnApple.setOnClickListener {
-            openStockScreen("AAPL")
+            openStockScreen("AAPL", "Apple")
         }
     }
 
-    private fun openStockScreen(symbol: String) {
+    /**
+     * Navigates to the StockActivity to display details for the selected stock.
+     * @param symbol The stock ticker symbol (e.g., "AAPL").
+     * @param companyName The full name of the company to display in the title.
+     */
+    private fun openStockScreen(symbol: String, companyName: String) {
         val intent = Intent(this, StockActivity::class.java)
         intent.putExtra("SYMBOL", symbol)
+        intent.putExtra("NAME", companyName)
         startActivity(intent)
     }
 }
