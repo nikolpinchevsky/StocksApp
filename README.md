@@ -49,7 +49,7 @@ Add the library to your module's `build.gradle.kts`:
 ```kotlin
 dependencies {
     // Check the badge above for the latest version
-    implementation("com.github.nikolpinchevsky:StocksApp:1.1")
+    implementation("com.github.nikolpinchevsky:StocksApp:1.3.1")
 }
 ```
 
