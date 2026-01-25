@@ -19,6 +19,11 @@ The project is divided into three main layers:
 3.  **Android Example App (Client):**
     * A demo application written in **Kotlin**.
     * Demonstrates SDK usage, user login, and data visualization using **MPAndroidChart**.
+    * 
+## 🔗 Related Repositories
+
+Backend API (Server):
+https://github.com/nikolpinchevsky/Stocks-Server
 
 ## 🚀 Setup & Installation
 
