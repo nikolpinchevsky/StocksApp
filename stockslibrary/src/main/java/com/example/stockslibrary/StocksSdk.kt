@@ -6,26 +6,25 @@ import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 
 /**
- * SDK for interacting with the Stocks API backend.
- * Handles authentication, stock retrieval, seeding, quoting, and history fetching.
- * @property baseUrl The base URL of the Stocks API.
+ * Stocks SDK - a thin client around the backend REST API.
+ *
+ * Responsibilities:
+ * - Adds Authorization header (Bearer token) when a token is set
+ * - Exposes convenient suspend methods for the main API endpoints
+ *
+ * baseUrl MUST end with "/" (Retrofit requirement).
  */
 class StocksSdk(baseUrl: String) {
 
+    // Stored in-memory token used by the interceptor (not persisted).
     @Volatile private var token: String? = null
 
-    /**
-     * Sets the JWT token for authenticated requests.
-     * @param jwt The JWT token string.
-     */
+    /** Set/clear the JWT token used for authenticated requests. */
     fun setToken(jwt: String?) {
         token = jwt
     }
 
-    /**
-     * Retrieves the current JWT token.
-     * @return The JWT token string, or null if not set.
-     */
+    // Adds Authorization header automatically (if token exists).
     private val authInterceptor = Interceptor { chain ->
         val req = chain.request().newBuilder()
         val t = token
@@ -47,11 +46,9 @@ class StocksSdk(baseUrl: String) {
 
     private val api = retrofit.create(StocksApi::class.java)
 
-    /***
-     * Logs in a user with the provided email and password.
-     * @param email The user's email address.
-     * @param password The user's password.
-     * @return The JWT token string upon successful login.
+    /**
+     * Login with email/password.
+     * On success, the token is saved internally and reused automatically.
      */
     suspend fun login(email: String, password: String): String {
         val res = api.login(AuthBody(email, password))
@@ -59,29 +56,18 @@ class StocksSdk(baseUrl: String) {
         return res.token
     }
 
-    /**
-     * Retrieves the list of all stocks available in the system.
-     */
+    /** Returns all stocks from /stocks endpoint. */
     suspend fun getStocks(): List<StockItem> = api.listStocks().items
 
-    /**
-     * Creates or updates a stock entry (Admin/Seed operation).
-     */
+    /** Admin/seed operation: creates or updates a stock entry. */
     suspend fun seedStock(symbol: String, name: String?, price: Double, currency: String = "USD") {
         api.seedStock(SeedStockBody(symbol, name, price, currency))
     }
 
-    /**
-     * Fetches the current price quote for a given stock symbol.
-     * @param symbol The stock symbol (e.g. "AAPL").
-     */
+    /** Returns the current quote for a symbol. */
     suspend fun quote(symbol: String): QuoteResponse = api.quote(symbol)
 
-    /**
-     * Fetches historical data points for plotting graphs.
-     * @param symbol The stock symbol.
-     * @return A list of [HistoryPoint] objects containing timestamp, price, and volume.
-     */
+    /** Returns history points for charts. */
     suspend fun getHistory(symbol: String): List<HistoryPoint> =
         api.history(symbol).points
 
