@@ -84,7 +84,9 @@ lifecycleScope.launch {
 <img width="373" height="825" alt="image" src="https://github.com/user-attachments/assets/acff2009-c665-47f6-9d3d-bc7355fa139d" />  <img width="376" height="829" alt="image" src="https://github.com/user-attachments/assets/b7588bc5-faf4-4508-9903-84a6434c6944" />
 
 
-
+## 📚 Documentation
+Live documentation is available here:
+https://nikolpinchevsky.github.io/StocksApp/
 
 
 ## 📄 License
