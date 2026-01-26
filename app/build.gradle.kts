@@ -71,5 +71,6 @@ dependencies {
     implementation(libs.androidx.navigation.compose)
 
     // My library
-    implementation(libs.stocksapp)
+    implementation(libs.stocksapp.v131)
+
 }
